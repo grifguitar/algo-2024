@@ -1,4 +1,4 @@
-# Course of algorithms and data structures in the master's program at ITMO
+# Course of Algorithms and Data Structures in the master's program at ITMO
 
 Lecturer: Grigoriy Khlytin [@kgrigoriy](https://t.me/kgrigoriy)
 
