@@ -2,8 +2,11 @@
 
 Lecturer: Grigoriy Khlytin [@kgrigoriy](https://t.me/kgrigoriy)
 
-## Course plan:
+## Links:
+- [YouTube playlist](https://www.youtube.com/playlist?list=PLd7QXkfmSY7ZjmhgYdmCzcj1dhHYc-fx6)
+- [VK video](https://vk.com/video/playlist/-211870343_28)
 
+### Course plan:
 #### L1. Алгоритм, модель вычислений, асимптотические нотации, рекурсия
 - что такое алгоритм, как записать алгоритм в виде псевдокода
 - модель вычислений RAM-машина, различия с реальным железом
