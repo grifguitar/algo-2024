@@ -5,7 +5,7 @@ Lecturer: Grigoriy Khlytin [@kgrigoriy](https://t.me/kgrigoriy)
 ## Links:
 ### Lectures:
 - [YouTube playlist](https://www.youtube.com/playlist?list=PLd7QXkfmSY7ZjmhgYdmCzcj1dhHYc-fx6)
-- [VK video](https://vk.com/video/playlist/-211870343_28)
+- [VK video playlist](https://vk.com/video/playlist/-211870343_28)
 ### Tasks:
 - [Practical tasks](https://codeforces.com/group/XAtC1x2exm)
 - [Theoretical tasks](https://github.com/grifguitar/algo-2024/blob/main/algo-2024.pdf)
