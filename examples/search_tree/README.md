@@ -1,6 +1,6 @@
 [визуализация дерева для search_tree.py:](https://github.com/grifguitar/algo-2024/blob/main/examples/search_tree/search_tree.py)
 
-```pycon
+```python
         (,)
     (55,6836)
             (,)
