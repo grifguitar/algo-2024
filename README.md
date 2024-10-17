@@ -102,3 +102,4 @@ Lecturer: Grigoriy Khlytin [@kgrigoriy](https://t.me/kgrigoriy)
 - мемоизация с хеш-мапой
 
 #### S7. Семинар + контроль
+
