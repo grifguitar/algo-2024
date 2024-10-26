@@ -8,10 +8,30 @@ class Vertex:
         self.left: Vertex = left
         self.right: Vertex = right
 
-    def __str__(self, tab=0):
-        return ((self.right.__str__(tab=(tab + 1)) if self.right is not None else ' ' * 4 * (tab + 1) + '(,)') + '\n' +
-                ' ' * 4 * tab + '(' + str(self.key) + ',' + str(self.priority) + ')' + '\n' +
-                (self.left.__str__(tab=(tab + 1)) if self.left is not None else ' ' * 4 * (tab + 1) + '(,)'))
+    def __str__(self):
+        lines = {}
+        Vertex.print_tree(v=self, skip=0, d=0, lines=lines)
+        ans = []
+        for i in range(len(lines)):
+            if i in lines:
+                ans.append(lines[i])
+        return '\n'.join(ans)
+
+    @staticmethod
+    def print_tree(v, skip, d, lines) -> int:
+        if d not in lines:
+            lines[d] = ''
+        if v is None:
+            cur = '(,)'
+            lines[d] += ' ' * (skip - len(lines[d]))
+            lines[d] += cur
+            return len(cur)
+        cur = '(' + str(v.key) + ',' + str(v.priority) + ')'
+        l = Vertex.print_tree(v=v.left, skip=skip, d=(d + 1), lines=lines)
+        lines[d] += ' ' * (skip + l - len(lines[d]))
+        lines[d] += cur
+        r = Vertex.print_tree(v=v.right, skip=(skip + l + len(cur)), d=(d + 1), lines=lines)
+        return l + r + len(cur)
 
 
 def merge(root1: Vertex, root2: Vertex) -> Vertex:
