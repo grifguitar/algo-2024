@@ -9,29 +9,27 @@ class Vertex:
         self.right: Vertex = right
 
     def __str__(self):
-        lines = {}
-        Vertex.print_tree(v=self, skip=0, d=0, lines=lines)
-        ans = []
+        lines: dict = {}
+        ans: list = []
+        print_tree(v=self, skip=0, d=0, lines=lines)
         for i in range(len(lines)):
             if i in lines:
                 ans.append(lines[i])
         return '\n'.join(ans)
 
-    @staticmethod
-    def print_tree(v, skip, d, lines) -> int:
-        if d not in lines:
-            lines[d] = ''
-        if v is None:
-            cur = '(,)'
-            lines[d] += ' ' * (skip - len(lines[d]))
-            lines[d] += cur
-            return len(cur)
-        cur = '(' + str(v.key) + ',' + str(v.priority) + ')'
-        l = Vertex.print_tree(v=v.left, skip=skip, d=(d + 1), lines=lines)
-        lines[d] += ' ' * (skip + l - len(lines[d]))
-        lines[d] += cur
-        r = Vertex.print_tree(v=v.right, skip=(skip + l + len(cur)), d=(d + 1), lines=lines)
-        return l + r + len(cur)
+
+def print_tree(v: Vertex, skip: int, d: int, lines: dict) -> int:
+    if d not in lines:
+        lines[d] = ''
+    if v is None:
+        cur: str = '(,)'
+        lines[d] += ' ' * (skip - len(lines[d])) + cur
+        return len(cur)
+    cur: str = '(' + str(v.key) + ',' + str(v.priority) + ')'
+    l: int = print_tree(v=v.left, skip=skip, d=(d + 1), lines=lines)
+    lines[d] += ' ' * (skip + l - len(lines[d])) + cur
+    r: int = print_tree(v=v.right, skip=(skip + l + len(cur)), d=(d + 1), lines=lines)
+    return l + r + len(cur)
 
 
 def merge(root1: Vertex, root2: Vertex) -> Vertex:
@@ -51,13 +49,11 @@ def split(root: Vertex, key0: int) -> (Vertex, Vertex):
     if root is None:
         return None, None
     if root.key < key0:
-        (a, b) = split(root.right, key0)
-        root.right = a
-        return root, b
+        (root.right, other) = split(root.right, key0)
+        return root, other
     else:
-        (a, b) = split(root.left, key0)
-        root.left = b
-        return a, root
+        (other, root.left) = split(root.left, key0)
+        return other, root
 
 
 def insert(root: Vertex, key0: int) -> Vertex:
