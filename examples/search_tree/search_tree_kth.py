@@ -7,7 +7,7 @@ class Vertex:
         self.priority: int = priority
         self.left: Vertex = left
         self.right: Vertex = right
-        self.sz: int = sz  # !update!
+        self.sz: int = sz  # !new!
 
     def __str__(self):
         lines: dict = {}
@@ -33,12 +33,12 @@ def print_tree(v: Vertex, skip: int, d: int, lines: dict) -> int:
     return l + r + len(cur)
 
 
-# !update!
+# !new!
 def size_of(v: Vertex) -> int:
     return v.sz if v is not None else 0
 
 
-# !update!
+# !new!
 def recalc(v: Vertex) -> Vertex:
     if v is not None:
         v.sz = size_of(v.left) + size_of(v.right) + 1
@@ -52,10 +52,10 @@ def merge(root1: Vertex, root2: Vertex) -> Vertex:
         return root1
     if root1.priority < root2.priority:
         root1.right = merge(root1.right, root2)
-        return recalc(root1)  # !update!
+        return recalc(root1)  # !new!
     else:
         root2.left = merge(root1, root2.left)
-        return recalc(root2)  # !update!
+        return recalc(root2)  # !new!
 
 
 def split(root: Vertex, key0: int) -> (Vertex, Vertex):
@@ -63,10 +63,10 @@ def split(root: Vertex, key0: int) -> (Vertex, Vertex):
         return None, None
     if root.key < key0:
         (root.right, other) = split(root.right, key0)
-        return recalc(root), other  # !update!
+        return recalc(root), other  # !new!
     else:
         (other, root.left) = split(root.left, key0)
-        return other, recalc(root)  # !update!
+        return other, recalc(root)  # !new!
 
 
 def insert(root: Vertex, key0: int) -> Vertex:
@@ -89,7 +89,7 @@ def find(root: Vertex, key0: int) -> (bool, Vertex):
     return flag, merge(a, merge(c, d))
 
 
-# !update!
+# !new!
 def kth(root: Vertex, k: int) -> int:
     left_size: int = size_of(root.left)
     if k == left_size:
@@ -108,7 +108,7 @@ def main():
     tree = insert(tree, 3)
     print(tree)
 
-    # update
+    # !new!
     print('kth:')
     print(kth(tree, 0))
     print(kth(tree, 1))
