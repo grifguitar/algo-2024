@@ -9,6 +9,7 @@
   вершины описаны в формате `(key, priority)`
 
 - [визуализация дерева по неявному ключу (search_tree_x_impicit.py)](https://github.com/grifguitar/algo-2024/blob/main/examples/search_tree/search_tree_x_impicit.py)
+  для массива `[5, 4, 3, 2, 1]`
   ```
                (4,0,15)
      (5,0,5)                                  (1,0,6)
